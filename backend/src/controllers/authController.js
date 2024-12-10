@@ -42,3 +42,30 @@ export const register = async (req, res) => {
     res.status(500).json({ error: `${error.message}` });
   }
 };
+export const login = async (req, res) => {
+  const { email, password } = req.body;
+  try {
+    if (!email || !password)
+      return res.status(400).json({ message: "All fields are required" });
+
+    const user = await User.findOne({ email });
+
+    if (!user) return res.status(400).json({ message: "Wrong credentials" });
+
+    const isPasswordCorrect = await bcrypt.compare(password, user.password);
+
+    if (!isPasswordCorrect)
+      return res.status(400).json({ message: "Wrong credentials" });
+
+    generateTokenAndSetCookie(user._id, res);
+    res.status(200).json({
+      userId: user._id,
+      email: user.email,
+      fullName: user.fullName,
+      profilPic: user.profilPic,
+    });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+    console.log("Error in login controller.");
+  }
+};
