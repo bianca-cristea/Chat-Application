@@ -110,3 +110,13 @@ export const editProfilePic = async (req, res) => {
     });
   }
 };
+export const getUser = (req, res) => {
+  try {
+    res.status(200).json(req.user);
+  } catch (error) {
+    console.log("Error in checkAuth controller", error.message);
+    res.status(500).json({
+      message: "Internal server error",
+    });
+  }
+};

@@ -2,15 +2,15 @@ import jwt from "jsonwebtoken";
 import User from "../models/user.js";
 import cookieParser from "cookie-parser";
 
-export const authorize = async (userId, res, next) => {
+export const authorize = async (req, res, next) => {
   try {
-    const token = res.cookies.jwt;
+    const token = req.cookies.jwt;
     if (!token) {
       return res
         .status(401)
         .json({ message: "Unauthorized - No token provided" });
     }
-    const decoded = jwt.verify(userId, process.env.JWT_TOKEN);
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
     if (!decoded)
       return res.status(401).json({ message: "Unathorized - Invalid Token" });
     const user = await User.findById(decoded.userId).select("-password");
