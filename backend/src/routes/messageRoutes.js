@@ -10,6 +10,6 @@ const router = express.Router();
 
 router.get("/users", authorize, getUsers);
 router.post("/send-message/:id", authorize, sendMessage);
-router.post("/get-messages", authorize, getMessages);
+router.post("/get-messages/:id", authorize, getMessages);
 
 export default router;
