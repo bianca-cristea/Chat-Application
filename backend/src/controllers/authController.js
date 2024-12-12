@@ -1,7 +1,7 @@
 import User from "../models/user.js";
 import bcrypt from "bcryptjs";
 import { generateTokenAndSetCookie } from "../utils/generateToken.js";
-import cloudinary from "../../lib/cloudinary.js";
+import cloudinary from "../lib/cloudinary.js";
 
 export const register = async (req, res) => {
   const { email, fullName, password, profilePic } = req.body;
