@@ -110,7 +110,7 @@ export const editProfilePic = async (req, res) => {
     });
   }
 };
-export const getUser = (req, res) => {
+export const checkAuth = (req, res) => {
   try {
     res.status(200).json(req.user);
   } catch (error) {

@@ -4,7 +4,7 @@ import {
   login,
   logout,
   editProfilePic,
-  getUser,
+  checkAuth,
 } from "../controllers/authController.js";
 import { authorize } from "../middleware/authorization.js";
 
@@ -15,6 +15,6 @@ router.post("/login", login);
 router.post("/logout", logout);
 
 router.put("/edit-profile-pic", authorize, editProfilePic);
-router.get("/get-user", authorize, getUser);
+router.get("/check", authorize, checkAuth);
 
 export default router;
