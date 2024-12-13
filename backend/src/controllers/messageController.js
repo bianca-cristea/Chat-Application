@@ -1,4 +1,4 @@
-import cloudinary from "../../lib/cloudinary.js";
+import cloudinary from "../lib/cloudinary.js";
 import Message from "../models/message.js";
 import User from "../models/user.js";
 
@@ -18,8 +18,8 @@ export const getUsers = async (req, res) => {
 export const sendMessage = async (req, res) => {
   try {
     const { text, image } = req.body;
-    const { id: receiverId } = req.params.id;
-    const { senderId } = req.user._id;
+    const { id: receiverId } = req.params;
+    const senderId = req.user._id;
 
     let imageUrl;
 
@@ -36,8 +36,6 @@ export const sendMessage = async (req, res) => {
     });
 
     await newMessage.save();
-
-    //realtime functionality
 
     res.status(201).json({ newMessage });
   } catch (error) {
