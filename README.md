@@ -1,9 +1,10 @@
-Aplicatie de chat realizata cu ajutorul tehnologiilor MERN (aplicatie imbunatatita)
+<h1>Aplicatie de chat realizata cu ajutorul tehnologiilor MERN (aplicatie imbunatatita)</h1>
 
 Pentru partea de frontend am folosit:
 -React.js , Zustand Context , Tailwind CSS, Daisy UI
 Pentru partea de backend am folosit:
 -Node.js, Express.js, MongoDB
+
 
 **BACKEND:**
 -Pentru autentificare am folosit jsonwebtoken. Am creat o functie intr-un fisier separat(folder utils), special pentru a genera un token jwt si a-l seta in cookie. 
@@ -12,6 +13,9 @@ Am dat maxAge de 5 zile si ca payload am pus userId.Payloadul va fi informatia s
 -La signup, am folosit biblioteca bcrypt pentru hashing parola inainte de a fi adusa in baza de date.
 -Ulterior inainte de fiecare actiune am trecut cererea printr un middleware de autorizare pentru a verifica daca exista token ul si este valid.
 -Pentru comunicarea in timp real am folosit biblioteca SocketIO. Am creat un websocket server peste cel express pentru a nu mai fi nevoie de refresh si a primi mesajele in timp real.
+
+
+
 **FRONTEND:**
 -pentru stilizare am folosit framework-ul CSS Tailwind CSS si Biblioteca Daisy UI pentru componente built-in
 -Zustand Context a fost de ajutor pentru contextul global. Am declarat intr-un loc starea si am putut-o folosi din orice componenta.
