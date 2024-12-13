@@ -13,7 +13,7 @@ Am dat maxAge de 5 zile si ca payload am pus userId.Payloadul va fi informatia s
 -La signup, am folosit biblioteca bcrypt pentru hashing parola inainte de a fi adusa in baza de date.
 -Ulterior inainte de fiecare actiune am trecut cererea printr un middleware de autorizare pentru a verifica daca exista token ul si este valid.
 -Pentru comunicarea in timp real am folosit biblioteca SocketIO. Am creat un websocket server peste cel express pentru a nu mai fi nevoie de refresh si a primi mesajele in timp real.
-
+-pentru a putea gestiona si stoca imaginile am folosit Cloudinary
 
 
 **FRONTEND:**
