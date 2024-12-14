@@ -7,6 +7,8 @@
 -	La logout se sterge tot ce este in cookie si se da maxAge de 0. 
 -	Inainte de fiecare actiune, cererea trece printr-un middleware de autorizare unde se verifica existenta si se valideaza tokenul din cookie. Daca totul este in regula,  variabila decoded stocheaza informatia extrasa din cookie , adica payload-ul cu id-ul. Cu ajutorul acestuia am cautat in baza de date userul si adaugat in req.user cu care trece mai departe la functionalitate.
 -	Pentru a putea gestiona si stoca imaginile am folosit Cloudinary
+
+
 **FRONTEND(React.js,Tailwind CSS,Daisy UI,Zustand Context)**
 -	Zustand Context care ne ajuta cu starea globala, pentru a putea declara starea intr-un loc si a o folosi in ce componente era necesar.
 -	Am folosit framework-ul CSS Tailwind CSS pentru stilizare si biblioteca Daisy UI pentru a avea acces la componente build-in. 
