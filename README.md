@@ -1,27 +1,21 @@
 <h1>Aplicatie de chat realizata cu ajutorul tehnologiilor MERN (aplicatie imbunatatita)</h1>
 
-Pentru partea de frontend am folosit:
--- React.js , Zustand Context , Tailwind CSS, Daisy UI
+
+**BACKEND(Express.js, Node.js,MongoDB)**
+-	 sistem complet de autentificare. Am creat o functie intr-un fisier separat pentru generare jsonwebtoken si setare in cookie.  Aceasta functie a fost apelata in controller la signup si login. 
+-	La signup am  folosit biblioteca bcrypt pentru a genera un salt de 10 si hashing parola .Ulterior am stocat-o  criptata in baza de date. La login am folosit tot bcrypt pentru a putea compara parola introdusa de user cu cea din baza de date.
+-	La logout se sterge tot ce este in cookie si se da maxAge de 0. 
+-	Inainte de fiecare actiune, cererea trece printr-un middleware de autorizare unde se verifica existenta si se valideaza tokenul din cookie. Daca totul este in regula,  variabila decoded stocheaza informatia extrasa din cookie , adica payload-ul cu id-ul. Cu ajutorul acestuia am cautat in baza de date userul si adaugat in req.user cu care trece mai departe la functionalitate.
+-	Pentru a putea gestiona si stoca imaginile am folosit Cloudinary
+**FRONTEND(React.js,Tailwind CSS,Daisy UI,Zustand Context)**
+-	Zustand Context care ne ajuta cu starea globala, pentru a putea declara starea intr-un loc si a o folosi in ce componente era necesar.
+-	Am folosit framework-ul CSS Tailwind CSS pentru stilizare si biblioteca Daisy UI pentru a avea acces la componente build-in. 
+-	Am folosit biblioteca axios pentru a prelua functionalitatile de pe backend
+-	In folderul store am customizat hook-uri pentru autentificare si mesaje in care am declarat starea cu ajutorul Zustand Context si am facut legatura cu backendul prin axios.
+-	Pentru comunicarea in timp real am folosit biblioteca Socket.IO , am creat un websocket server peste serverul express pentru a putea avea aceasta comunicare bidirectionala fara a fi nevoie de a mai da refresh paginii. Cu ajutorul acestei biblioteci am putut avea si functionalitatea de online status.
 
 
-Pentru partea de backend am folosit:
--- Node.js, Express.js, MongoDB
-
-
-**BACKEND:**
--Pentru autentificare am folosit jsonwebtoken. Am creat o functie intr-un fisier separat(folder utils), special pentru a genera un token jwt si a-l seta in cookie. 
-Am dat maxAge de 5 zile si ca payload am pus userId. Payloadul va fi informatia scurta si unica ce va fi stocata in token.
--In functiile signup si login , in controller am generat tokenul si l-am setat in cookie, iar la logout , am sters informatia din cookie si i-am dat maxAge:0.
--La signup, am folosit biblioteca bcrypt pentru hashing parola inainte de a fi adusa in baza de date.
--Ulterior inainte de fiecare actiune am trecut cererea printr un middleware de autorizare pentru a verifica daca exista token ul si este valid.
--Pentru comunicarea in timp real am folosit biblioteca SocketIO. Am creat un websocket server peste cel express pentru a nu mai fi nevoie de refresh si a primi mesajele in timp real.
--pentru a putea gestiona si stoca imaginile am folosit Cloudinary
-
-
-**FRONTEND:**
--pentru stilizare am folosit framework-ul CSS Tailwind CSS si Biblioteca Daisy UI pentru componente built-in
--Zustand Context a fost de ajutor pentru contextul global. Am declarat intr-un loc starea si am putut-o folosi din orice componenta.
--am folosit axios pentru a putea face conexiunea cu backendul.
+ 
 
 Interfata pentru login:
 ![image](https://github.com/user-attachments/assets/e74c5863-b3f9-478f-8221-c53c92047dc4)
