@@ -1,14 +1,16 @@
 <h1>Aplicatie de chat realizata cu ajutorul tehnologiilor MERN (aplicatie imbunatatita)</h1>
 
 Pentru partea de frontend am folosit:
--React.js , Zustand Context , Tailwind CSS, Daisy UI
+-- React.js , Zustand Context , Tailwind CSS, Daisy UI
+
+
 Pentru partea de backend am folosit:
--Node.js, Express.js, MongoDB
+-- Node.js, Express.js, MongoDB
 
 
 **BACKEND:**
 -Pentru autentificare am folosit jsonwebtoken. Am creat o functie intr-un fisier separat(folder utils), special pentru a genera un token jwt si a-l seta in cookie. 
-Am dat maxAge de 5 zile si ca payload am pus userId.Payloadul va fi informatia scurta si unica ce va fi stocata in token.
+Am dat maxAge de 5 zile si ca payload am pus userId. Payloadul va fi informatia scurta si unica ce va fi stocata in token.
 -In functiile signup si login , in controller am generat tokenul si l-am setat in cookie, iar la logout , am sters informatia din cookie si i-am dat maxAge:0.
 -La signup, am folosit biblioteca bcrypt pentru hashing parola inainte de a fi adusa in baza de date.
 -Ulterior inainte de fiecare actiune am trecut cererea printr un middleware de autorizare pentru a verifica daca exista token ul si este valid.
